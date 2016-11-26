@@ -1,5 +1,6 @@
 ﻿import Templates from './Templates';
 import View from './View';
+import '../../Styles/sources.less';
 
 // The sources view code behind
 export default class SourcesView extends View
@@ -12,7 +13,6 @@ export default class SourcesView extends View
         scroll(0, 0);
         super.clearView();
         let sourcesPanel = document.createElement("div");
-        sourcesPanel.setAttribute("class", "listPanel");
         for (let sourceItem of sourceItems) {
             let sourceItemElement = document.createElement("div");
             sourceItemElement.innerHTML = Templates.SourceItemTemplate(sourceItem);

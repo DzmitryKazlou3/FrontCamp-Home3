@@ -1,10 +1,9 @@
-﻿body {
+﻿@accent : orange;
+@borderColor : gray;
+
+body {
     margin: 0;
     background-color: rgba(222, 222, 222, 0.3)
-}
-
-.column-1of3 {
-    width: auto;
 }
 
 .pull-rigth16 {
@@ -24,8 +23,8 @@
 }
 
 .header-container {
-    background: orange;
-    box-shadow: 0 0 32px orange;
+    background: @accent;
+    box-shadow: 0 0 32px @accent;
 }
 
 .image-fit {
@@ -50,13 +49,13 @@
 
 .border {
     background: white;
-    box-shadow: 0 0 16px gray;
+    box-shadow: 0 0 16px @borderColor;
     margin: 16px;
     cursor: pointer;
 }
 
 .border:hover {
-    box-shadow: 0 0 32px orange;
+    box-shadow: 0 0 32px @accent;
     background: orange;
     color: white;
 }
@@ -90,13 +89,9 @@ a:hover {
     clear: both;
 }
 
-.listPanel {
-    
-}
-
 .back-button {
     cursor: pointer;
-    border: solid 1px orange;
+    border: solid 1px @accent;
     font-weight: bold;
     padding: 8px;
     text-align: center;
@@ -107,8 +102,8 @@ a:hover {
 }
 
 .back-button:hover {
-    background: orange;
-    box-shadow: 0 0 32px orange;
+    background: @accent;
+    box-shadow: 0 0 32px @accent;
 }
 
 /*when width >= 992*/
@@ -136,7 +131,7 @@ a:hover {
     
     .border {
         margin: 2px;
-        box-shadow: 0 0 4px gray;
+        box-shadow: 0 0 4px @borderColor;
     }
 
     .item-container {
@@ -153,7 +148,7 @@ a:hover {
 
     .border {
         margin: 2px;
-        box-shadow: 0 0 4px gray;
+        box-shadow: 0 0 4px @borderColor;
     }
 
     .item-container {
@@ -170,7 +165,7 @@ a:hover {
 
     .border {
         margin: 2px;
-        box-shadow: 0 0 4px gray;
+        box-shadow: 0 0 4px @borderColor;
     }
 
     .item-container {

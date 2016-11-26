@@ -1,6 +1,8 @@
 ﻿import Templates from './Templates';
 import View from './View';
 
+import '../../Styles/article.less';
+
 // The articles view.
 export default class ArticlesView extends View
 {

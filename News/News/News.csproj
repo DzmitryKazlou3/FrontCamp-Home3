@@ -66,14 +66,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="build\js\main.min.js" />
-    <Content Include="build\Styles\article.css" />
-    <Content Include="build\Styles\site.css" />
-    <Content Include="build\Styles\sources.css" />
     <Content Include="packages.config" />
     <Content Include="package.json" />
     <Content Include="webpack.config.js" />
     <Content Include=".babelrc" />
+    <Content Include="Styles\site.less" />
+    <Content Include="Styles\Red\Red.less" />
+    <Content Include="Styles\article.less" />
+    <Content Include="Styles\sources.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

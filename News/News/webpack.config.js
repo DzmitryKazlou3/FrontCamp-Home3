@@ -2,13 +2,15 @@
 "use strict";
 
 var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var devMode = process.env.NODE_ENV == 'development';
 
 module.exports = {
     entry: "./Scripts/app.js",
     output: {
-        path: process.env.NODE_ENV == 'development' ? __dirname + "/build/js" : __dirname + "/../../js",
+        path: devMode ? __dirname + "/build/js" : __dirname + "/../../js",
         filename: "[name].min.js",
-        publicPath: process.env.NODE_ENV == 'development' ? "js/" : "/FrontCamp-Home3/js/",
+        publicPath: devMode ? "js/" : "/FrontCamp-Home3/js/",
         chunkFilename: "[name].min.js"
     },
     devServer: {
@@ -22,16 +24,21 @@ module.exports = {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
                 loader: "babel-loader"
+            },
+            {
+                test: /\.less$/,
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer-loader!less-loader")
             }
         ]
     },
 
     plugins: [
         new webpack.NoErrorsPlugin(),
-        new webpack.EnvironmentPlugin(["NODE_ENV"])
+        new webpack.EnvironmentPlugin(["NODE_ENV"]),
+        new ExtractTextPlugin("../Styles/[name].css", { allChunks: true})
     ],
 
-    devtool: process.env.NODE_ENV == 'development' ? "eval" : "source-map",
+    devtool: devMode ? "eval" : "source-map",
 
     watchOptions: {
         aggregateTimeout: 300,
@@ -39,5 +46,5 @@ module.exports = {
         ignored: /node_modules/
     },
 
-    watch: process.env.NODE_ENV == 'development'
+    watch: devMode
 };

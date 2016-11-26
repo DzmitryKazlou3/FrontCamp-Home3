@@ -2,7 +2,7 @@
     `<a href="${article.url}">
         <div class ="item-container">
             <div class ="article-image"><img class ="image-fit" src="${article.urlToImage}"></div>
-            <div class ="article-text-area">
+            <div>
                 <div class="article-item-header">${article.title}</div>
                 <div class ="article-item-description">${article.description}</div>
             </div>
