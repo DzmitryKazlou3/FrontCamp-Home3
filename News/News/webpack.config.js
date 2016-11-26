@@ -6,10 +6,13 @@ var webpack = require('webpack');
 module.exports = {
     entry: "./Scripts/app.js",
     output: {
-        filename: "./app-min.js"
+        path: process.env.NODE_ENV == 'development' ? __dirname + "/build/js" : __dirname + "/../../js",
+        filename: "[name].min.js",
+        publicPath: process.env.NODE_ENV == 'development' ? "js/" : "/FrontCamp-Home3/js/",
+        chunkFilename: "[name].min.js"
     },
     devServer: {
-        contentBase: ".",
+        contentBase: "./build",
         host: "localhost",
         port: 9000
     },
@@ -24,6 +27,7 @@ module.exports = {
     },
 
     plugins: [
+        new webpack.NoErrorsPlugin(),
         new webpack.EnvironmentPlugin(["NODE_ENV"])
     ],
 

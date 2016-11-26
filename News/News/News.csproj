@@ -66,8 +66,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app-min.js" />
-    <Content Include="articles.html" />
+    <Content Include="build\js\main.min.js" />
+    <Content Include="build\Styles\article.css" />
+    <Content Include="build\Styles\site.css" />
+    <Content Include="build\Styles\sources.css" />
     <Content Include="packages.config" />
     <Content Include="package.json" />
     <Content Include="webpack.config.js" />
@@ -80,7 +82,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="index.html" />
+    <Content Include="build\index.html" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\Common\Observable.js" />
     <Content Include="Scripts\Common\Urls.js" />
