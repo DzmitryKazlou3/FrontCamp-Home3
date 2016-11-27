@@ -4,9 +4,13 @@
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var devMode = process.env.NODE_ENV == 'development';
+var path = require('path');
 
 module.exports = {
-    entry: "./Scripts/app.js",
+    entry: {
+        main: "./Scripts/app.js",
+        test: "./Custom loader/test.json"
+    },
     output: {
         path: devMode ? __dirname + "/build/js" : __dirname + "/../../js",
         filename: "[name].min.js",
@@ -22,12 +26,25 @@ module.exports = {
         loaders: [
             {
                 test: /\.jsx?$/,
-                exclude: /node_modules/,
+                include: [
+                    path.resolve(__dirname, "Scripts"),
+                    path.resolve(__dirname, "Custom loader")
+                ],
                 loader: "babel-loader"
             },
             {
                 test: /\.less$/,
+                include: [
+                    path.resolve(__dirname, "Styles")
+                ],
                 loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer-loader!less-loader")
+            },
+            {
+                test: /\.json$/,
+                include: [
+                    path.resolve(__dirname, "Custom loader")
+                ],
+                loader: "./Custom loader/zlov-loader!json-loader"
             }
         ]
     },
