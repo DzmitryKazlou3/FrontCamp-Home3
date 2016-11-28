@@ -69,6 +69,7 @@
     <Content Include="Custom loader\zlov-loader.js" />
     <Content Include="packages.config" />
     <Content Include="package.json" />
+    <Content Include="postcss.config.js" />
     <Content Include="webpack.config.js" />
     <Content Include=".babelrc" />
     <Content Include="Styles\site.less" />

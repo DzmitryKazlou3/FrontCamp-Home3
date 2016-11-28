@@ -1,5 +1,4 @@
-﻿module.exports = function (source) {
-    this.cacheable();
+﻿module.exports = function (source, map) {
 
     this.cacheable && this.cacheable();
     var value;
@@ -20,6 +19,5 @@
         }
     });
 
-    this.value = value;
-    return "module.exports = " + JSON.stringify(this.value) + ";";
+    return "module.exports = " + JSON.stringify(value) + ";";
 };

@@ -37,14 +37,14 @@ module.exports = {
                 include: [
                     path.resolve(__dirname, "Styles")
                 ],
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer-loader!less-loader")
+                loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader!postcss-loader!less-loader' })
             },
             {
                 test: /\.json$/,
                 include: [
                     path.resolve(__dirname, "Custom loader")
                 ],
-                loader: "./Custom loader/zlov-loader!json-loader"
+                loader: "./Custom loader/zlov-loader"
             }
         ]
     },
@@ -52,7 +52,7 @@ module.exports = {
     plugins: [
         new webpack.NoErrorsPlugin(),
         new webpack.EnvironmentPlugin(["NODE_ENV"]),
-        new ExtractTextPlugin("../Styles/[name].css", { allChunks: true})
+        new ExtractTextPlugin({ filename: "../Styles/[name].css", disable: false, allChunks: true})
     ],
 
     devtool: devMode ? "eval" : "source-map",
