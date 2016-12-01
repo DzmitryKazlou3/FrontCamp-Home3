@@ -1,6 +1,20 @@
-﻿export default class Observable{
-    constructor() {
+﻿let _singletonUnificator = Symbol();
+
+export default class Observable{
+    constructor(singletonUnificator) {
+        if (singletonUnificator !== _singletonUnificator) {
+            throw "It is singleton please use Instance property instead";
+        }
+
         this._observers = new Map();
+    }
+
+    static get Instance() {
+        if(!Observable._instance){
+            Observable._instance = new Observable(_singletonUnificator);
+        }
+
+        return Observable._instance;
     }
 
     addObserver(label, callback) {

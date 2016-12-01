@@ -1,7 +1,7 @@
-﻿
+﻿import Observable from '../Common/Observable';
+
 export default class ArticlesPresenter {
-    constructor(articlesView, articleService, observable) {
-        this._observable = observable;
+    constructor(articlesView, articleService) {
         this._articleService = articleService;
         this._articlesView = articlesView;
         this._articlesView.Presenter = this;
@@ -20,6 +20,6 @@ export default class ArticlesPresenter {
     }
 
     goBack() {
-        this._observable.emit("back");
+        Observable.Instance.emit("back");
     }
 }

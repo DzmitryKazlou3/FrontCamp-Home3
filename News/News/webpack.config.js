@@ -55,7 +55,7 @@ module.exports = {
         new ExtractTextPlugin({ filename: "../Styles/[name].css", disable: false, allChunks: true})
     ],
 
-    devtool: devMode ? "eval" : "source-map",
+    devtool: devMode ? "source-map" : "source-map",
 
     watchOptions: {
         aggregateTimeout: 300,

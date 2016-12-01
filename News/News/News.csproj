@@ -70,6 +70,8 @@
     <Content Include="packages.config" />
     <Content Include="package.json" />
     <Content Include="postcss.config.js" />
+    <Content Include="Scripts\Common\ProxyCache.js" />
+    <Content Include="Scripts\Services\ArticleServiceProxy.js" />
     <Content Include="webpack.config.js" />
     <Content Include=".babelrc" />
     <Content Include="Styles\site.less" />

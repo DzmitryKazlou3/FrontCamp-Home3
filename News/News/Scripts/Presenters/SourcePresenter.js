@@ -1,8 +1,9 @@
+import Observable from '../Common/Observable';
+
 // The source Presenter
 export default class SourcePresenter {
-    constructor(sourceView, sourceService, observable) {
-        this._observable = observable;
-        observable.addObserver("back", this.loadSources.bind(this));
+    constructor(sourceView, sourceService) {
+        Observable.Instance.addObserver("back", this.loadSources.bind(this));
         this._sourceService = sourceService;
         this._sourceView = sourceView;
         this._sourceView.Presenter = this;
@@ -11,7 +12,7 @@ export default class SourcePresenter {
 
     set SelectedSourceId(value) {
         this._selectedSourceId = value;
-        this._observable.emit("sourceChanged", this._selectedSourceId);
+        Observable.Instance.emit("sourceChanged", this._selectedSourceId);
     }
 
     loadSources() {
